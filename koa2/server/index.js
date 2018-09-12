@@ -1,7 +1,25 @@
 const Koa = require('koa')
 const logger = require('koa-logger')
 const session = require('koa-session')
+const Router = require('koa-router')
+const koaBody = require('koa-body')
 const app = new Koa()
+const router = new Router()
+
+router.all('/test', (ctx, next) => {
+    console.log('/test')
+    console.log(ctx.request.headers)
+    console.log(ctx.request.body)
+    ctx.body = {
+        code: '0000',
+        msg: 'success'
+    }
+})
+
+app.use(koaBody())
+app.use(router.routes())
+
+
 /*
 const mid1 = async (ctx, next) => {
     ctx.body = 'Hi'
