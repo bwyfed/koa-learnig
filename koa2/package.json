@@ -5,6 +5,7 @@
   "main": "cb-promise.js",
   "scripts": {
     "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
+    "serve": "nodemon -w src --exec \"babel-node server --presets env\"",
     "production": "node dist",
     "build": "rimraf dist && babel src -s -D -d dist --presets env",
     "test": "echo \"Error: no test specified\" && exit 1"
